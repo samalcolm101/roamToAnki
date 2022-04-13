@@ -1,0 +1,46 @@
+{
+    "create-time": 1649668715791,
+    "title": "Describe core data concepts",
+    ":create/user": {
+        ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2"
+    },
+    "children": [{
+        "string": "Describe types of core data workloads",
+        "create-time": 1649668819127,
+        ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" },
+        "children": [{ "string": "describe [[batch data]]", "create-time": 1649668827560, ":block/refs": [{ ":block/uid": "JxuzU2o3r" }], "refs": [{ "uid": "JxuzU2o3r" }], ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }, "uid": "YbBT6v_-q", "edit-time": 1649668837602, ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" } }, { "string": "describe [[streaming data]]", "create-time": 1649668827560, ":block/refs": [{ ":block/uid": "xnq0yqige" }], "refs": [{ "uid": "xnq0yqige" }], ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }, "uid": "UEhBIP4Iv", "edit-time": 1649668845624, ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" } }, { "string": "describe the [[difference between batch and streaming data]]", "create-time": 1649668827560, ":block/refs": [{ ":block/uid": "2Vstwl_km" }], "refs": [{ "uid": "2Vstwl_km" }], ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }, "uid": "p3w2D2GK4", "edit-time": 1649668851619, ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" } }, { "string": "describe the [[characteristics of relational data]]", "create-time": 1649668827560, ":block/refs": [{ ":block/uid": "GX5WDFOyC" }], "refs": [{ "uid": "GX5WDFOyC" }], ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }, "uid": "Xf6Wo92Yq", "edit-time": 1649668854769, ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" } }],
+        "uid": "mcHZXDcir",
+        "edit-time": 1649778611061,
+        ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }
+    }, {
+        "edit-time": 1649669034969,
+        "children": [{ "string": "describe [[data visualization]] (e.g., [[visualization]], [[reporting]], [[business intelligence (BI)]])", "create-time": 1649668887512, ":block/refs": [{ ":block/uid": "CW47ImugC" }, { ":block/uid": "9iRyY161h" }, { ":block/uid": "6yftFz-Cg" }, { ":block/uid": "e5zhRXbT4" }], "refs": [{ "uid": "CW47ImugC" }, { "uid": "9iRyY161h" }, { "uid": "6yftFz-Cg" }, { "uid": "e5zhRXbT4" }], ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }, "uid": "YEH-jcf5f", "edit-time": 1649669028809, ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" } }, { "string": "describe[[ basic chart types]] such as [[bar charts]] and [[pie charts]]", "create-time": 1649668887512, ":block/refs": [{ ":block/uid": "RZ4gxjuMX" }, { ":block/uid": "qOzLfStCZ" }, { ":block/uid": "jIytrMjbi" }], "refs": [{ "uid": "RZ4gxjuMX" }, { "uid": "qOzLfStCZ" }, { "uid": "jIytrMjbi" }], ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }, "uid": "KQIM61--s", "edit-time": 1649669002675, ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" } }, { "string": "describe [[analytics techniques]] (e.g., [[descriptive]], [[diagnostic]], [[predictive]], [[prescriptive]], [[cognitive]])", "create-time": 1649668887512, ":block/refs": [{ ":block/uid": "ksMpN5Mey" }, { ":block/uid": "4whKf9LL8" }, { ":block/uid": "DIGWYoge0" }, { ":block/uid": "-AHMzZRbC" }, { ":block/uid": "S3GJq_Xv2" }, { ":block/uid": "tBgt2CLAf" }], "refs": [{ "uid": "ksMpN5Mey" }, { "uid": "4whKf9LL8" }, { "uid": "DIGWYoge0" }, { "uid": "-AHMzZRbC" }, { "uid": "S3GJq_Xv2" }, { "uid": "tBgt2CLAf" }], ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }, "uid": "iwcIEkdAq", "edit-time": 1649668990556, ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" } }, { "string": "describe [[ELT]] and [[ETL processing]]", "create-time": 1649668887512, ":block/refs": [{ ":block/uid": "WcP657KMH" }, { ":block/uid": "Nu9wnswQf" }], "refs": [{ "uid": "WcP657KMH" }, { "uid": "Nu9wnswQf" }], ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }, "uid": "8N333yEx7", "edit-time": 1649668972977, ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" } }, { "string": "describe the [[concepts of data processing]]", "create-time": 1649668887512, ":block/refs": [{ ":block/uid": "yySd5lQMf" }], "refs": [{ "uid": "yySd5lQMf" }], ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }, "uid": "hDJuOvzb5", "edit-time": 1649668964011, ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" } }],
+        "refs": [{ "uid": "9rfuJ-KY8" }],
+        "uid": "_LRqTd21J",
+        ":block/refs": [{ ":block/uid": "9rfuJ-KY8" }],
+        "string": "Describe [[data analytics core concepts]]",
+        ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" },
+        "create-time": 1649668863556,
+        ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }
+    }],
+    "uid": "MeDLCtyeq",
+    "edit-time": 1649668815584,
+    ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }
+}
+
+
+
+
+
+
+{
+    "create-time": 1649668837607,
+    "title": "batch data",
+    ":create/user": {
+        ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2"
+    },
+    "children": [{ "string": "", "uid": "IXIGBm5OC", "create-time": 1649684154270, "edit-time": 1649684158552, ":create/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }, ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" } }],
+    "uid": "JxuzU2o3r",
+    "edit-time": 1649668837607,
+    ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }
+}
