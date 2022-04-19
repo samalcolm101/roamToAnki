@@ -1,9 +1,0 @@
-"""Maintain acceptable continuous performance despite temporary failure in services, hardware, or datacenters, as well as fluctuation in load"" ",High Availability,AZ900_DescribeCloudConcepts
-The ability of a system to handle increased load. ,Scalability,AZ900_DescribeCloudConcepts
-"""The ability to quickly expand or decrease computer processing, memory, and storage resources to meet changing demands without worrying about capacity planning and engineering for peak usage"" ",Elasticity,AZ900_DescribeCloudConcepts
-"""Protect against the loss of an entire region through asynchronous replication for failover of virtual machines and data"" ",Disaster Recovery,AZ900_DescribeCloudConcepts
-"""These expenditures are generally nonrecurring and result in the acquisition of permanent assets"" ",Capital Expenditure (CapEx),AZ900_DescribeCloudConcepts
-"""These expenditures are ongoing costs of doing business."" ",Operational Expenditure (OpEx),AZ900_DescribeCloudConcepts
-"""You are charged for only what you use."" ",consumption-based model,AZ900_DescribeCloudConcepts
-What is the name of this page? ,Example Page,
-What is the coolest page on this roam? ,Example Page,"UselessQuestions,notAZ900Knowledge"

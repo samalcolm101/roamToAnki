@@ -1,0 +1,19 @@
+What is the name of this page?,Example Page,DP900
+This is my new question that is AZ900 and DP900,Example Page,"AZ900,DP900"
+Use Tag,Example Page,"along,with,other,relevant,Tag,AZ900,or,DP900,to,mark,question,for,Anki,App;,do,not,use,the,answer,in,the,question;,the,answer,must,be,the,name,of,the,page."
+What does OLTP stand for?,OLTP,DP900
+What 4 letter acronym describes the set of rules that OLTP use?,OLTP,DP900
+What does ACID stand for?,ACID,DP900
+"BLANK is information that has some structure, but which allows for some variation between entity instances.",Semi-structured data,DP900
+What type of database is stored in rows and columns,Relational Database,DP900
+What type of key is used to uniquely identify records within a table in a database?,Primary Key,DP900
+What type of key is used to link to unique identifiers in other tables in a database?,Foreign Key,DP900
+"Data for BLANK is collected over time, often from different data sources, and it is processed as a dataset that includes a range of rows or all rows in the dataset. It is designed to handle processing of large dataset. There is typically a long latency between data collection and data processing.",Batch Processing,DP900
+BLANK is designed for real-time or near real-time processing often as a data load process with minimal processing. Data is either processed as it is generated or in micro-batches of a very few rows with latency of no more than a few milliseconds (very short latency).,Stream Processing,DP900
+Which processing is best suited for following application: reporting the number of users and bandwidth user for an online game.,Stream Processing,"UseCase,DP900"
+Which processing is best suited for following application: identifying detected manufacturing errors to automatically reject failing parts.,Stream Processing,"UseCase,DP900"
+Which processing is best suited for the following application: data from sensors and IoT devices.,Stream Processing,"UseCase,DP900"
+Which processing is best suited for following application: real-time data from users navigating in a website.,Stream Processing,"UseCase,DP900"
+BLANK is the process that is used to split an entity into multiple tables in a relational databases. This helps to minimize data duplication through the use of related tables.,Normalization,DP900
+A BLANK is a data structure associated with a table that defines the order in which rows are stored on a disk.,Clustered Index,DP900
+"Mechanism for grouping related rows, based on a common property or partition key. Rows that share the same partition key will be stored together.",Partitioning,DP900

@@ -1,10 +1,14 @@
 import json
 import csv
 
-op = []
+az900 = []
+dp900 = []
+ai900 = []
+
 
 def removeHashTags(text):
-    text.replace('[', '').replace(']', '')
+    text = text.replace('[', '').replace(']', '').replace(
+        '>', '').replace('"', '')
     partition = text.partition("#")
     question = partition[0]
     withouthash = partition[-1].replace('QuizQuestion', "")
@@ -17,7 +21,14 @@ def getChildren(parent):
     for y in parent["children"]:
         if "#QuizQuestion" in y["string"]:
             question, tags = removeHashTags(y["string"])
-            op.append([question, parent['title'], tags])
+            question = question.split()
+            question = " ".join(question)
+            if "AZ900" in tags:
+                az900.append([question, parent['title'], tags])
+            if "DP900" in tags:
+                dp900.append([question, parent['title'], tags])
+            if "AI900" in tags:
+                ai900.append([question, parent['title'], tags])
 
 
 def getParents(jsonObj):
@@ -31,12 +42,18 @@ def getParents(jsonObj):
 
 
 def createCSV():
-    with open('anki.csv', 'w', encoding='UTF8', newline='') as f:
+    with open('az900.csv', 'w', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
-        writer.writerows(op)
+        writer.writerows(az900)
+    with open('dp900.csv', 'w', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(dp900)
+    with open('ai900.csv', 'w', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(ai900)
 
 
-f = open('1840DP900concepts.json', encoding="utf8")
+f = open('1140DP900concepts.json', encoding="utf8")
 
 data = json.load(f)
 
