@@ -7,9 +7,8 @@ az900 = []
 dp900 = []
 ai900 = []
 
+
 # Splits a text object into its question part and its tag part
-
-
 def removeHashTags(text):
     text = text.replace('[', '').replace(']', '').replace(
         '>', '').replace('"', '')  # removes any punctuation
@@ -21,9 +20,8 @@ def removeHashTags(text):
     tags = ','.join(tags)  # inserts a comma so it can be joined as a list
     return question, tags
 
+
 # Splits children from a parent object
-
-
 def getChildren(parent):
     for y in parent["children"]:
         # Splits QuizQuestions apart from other children
@@ -43,9 +41,8 @@ def getChildren(parent):
                 if "AI900" in tags:
                     ai900.append([question, parent['title'], tags])
 
+
 # Splits parents (including children) from the JSON OBJ
-
-
 def getParents(jsonObj):
     for items in jsonObj:
         try:
@@ -55,9 +52,8 @@ def getParents(jsonObj):
             continue  # Ignore if it doesn't have children
     createCSV()
 
+
 # Creates the CSVs from the OP lists
-
-
 def createCSV():
     with open('az900.csv', 'w', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
@@ -72,7 +68,7 @@ def createCSV():
 
 f = open('21APRDP900concepts.json', encoding="utf8")
 
-data = json.load(f)
+data = json.load(f) # Load the JSON file
 
 print("Running")
 getParents(data)
