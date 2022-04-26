@@ -23,14 +23,19 @@ def getChildren(parent):
     for y in parent["children"]:
         if "#QuizQuestion" in y["string"]: # Splits QuizQuestions apart from other children
             question, tags = removeHashTags(y["string"])
-            question = question.split() # Removes any whitespace
-            question = " ".join(question) 
-            if "AZ900" in tags: #Appends all AZ900 questions
-                az900.append([question, parent['title'], tags])
-            if "DP900" in tags: #appends all DP900 questions
-                dp900.append([question, parent['title'], tags])
-            if "AI900" in tags: #appends all AI900 questions
-                ai900.append([question, parent['title'], tags])
+            question = question.split()
+            question = " ".join(question)
+            parent['title'] = parent['title'].replace('[', '').replace(']', '').replace(
+                '>', '').replace('"', '')
+            if parent["title"] == "Example Page":
+                continue
+            else:
+                if "AZ900" in tags:
+                    az900.append([question, parent['title'], tags])
+                if "DP900" in tags:
+                    dp900.append([question, parent['title'], tags])
+                if "AI900" in tags:
+                    ai900.append([question, parent['title'], tags])
 
 #splits parents (including children) from the JSON OBJ
 def getParents(jsonObj):
@@ -55,7 +60,7 @@ def createCSV():
         writer.writerows(ai900)
 
 
-f = open('1140DP900concepts.json', encoding="utf8")
+f = open('21APRDP900concepts.json', encoding="utf8")
 
 data = json.load(f)
 
