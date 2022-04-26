@@ -17,7 +17,7 @@ A form of Blob storage optimized for analytics support with a hierarchical folde
 "In the context of Azure Data Factory or Synapse Pipelines, these describe work performed at each step in a Pipeline",activities,"DP900,Definition"
 Data processing service in Azure that provides a UI to orchestrate data processing activities; Synapse Pipelines are built on the same platform as this resource.,Azure Data Factory,"DP900,Definition"
 Specialized PowerBI report used to generate and share longer tabular data that can be formatted to fit well on a standard printed page,Paginated Reporting,"DP900,Definition"
-A collection of Visualizations in Power BI Report Builder that are organized around a theme and allow for drill-down for further detail.,Dashboards,"DP900,Definition"
+A collection of Visualizations in Power BI Report Builder that are organized around a theme and allow for drill-down for further detail.,Dashboards,"DP900,Definition,\newline"
 An Azure storage resource that employs the key-value type of Semi-structured data,Azure Table storage,"DP900,Definition"
 "An Azure data resource well suited for storing and serving up Unstructured Data in the form of images, videos, and PDFs",Azure Blob storage,"DP900,Definition"
 "A scripting language that has many uses - among them, interacting with Azure data resources",Azure PowerShell,"DP900,Definition"

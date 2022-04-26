@@ -7,7 +7,7 @@ az900 = []
 dp900 = []
 ai900 = []
 
-# Splits a text objcet into its question part and its tag part
+# Splits a text object into its question part and its tag part
 def removeHashTags(text):
     text = text.replace('[', '').replace(']', '').replace(
         '>', '').replace('"', '') #removes any punctuation
@@ -44,7 +44,7 @@ def getParents(jsonObj):
             if len(items["children"]) > 0: #if the parent has children
                 getChildren(items)
         except:
-            continue #Ignore if it doesnt have children
+            continue #Ignore if it doesn't have children
     createCSV()
 
 #creates the CSVs from the OP lists
