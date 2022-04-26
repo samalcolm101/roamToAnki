@@ -8,20 +8,26 @@ dp900 = []
 ai900 = []
 
 # Splits a text object into its question part and its tag part
+
+
 def removeHashTags(text):
     text = text.replace('[', '').replace(']', '').replace(
-        '>', '').replace('"', '') #removes any punctuation
-    partition = text.partition("#") #splits question from tags
+        '>', '').replace('"', '')  # removes any punctuation
+    partition = text.partition("#")  # splits question from tags
     question = partition[0]
     withouthash = partition[-1].replace('QuizQuestion', "")
-    tags = withouthash.replace('#', '').split() #removes the #s from the list of tags
-    tags = ','.join(tags) #inserts a comma so it can be joined as a list
+    # removes the #s from the list of tags
+    tags = withouthash.replace('#', '').split()
+    tags = ','.join(tags)  # inserts a comma so it can be joined as a list
     return question, tags
 
 # Splits children from a parent object
+
+
 def getChildren(parent):
     for y in parent["children"]:
-        if "#QuizQuestion" in y["string"]: # Splits QuizQuestions apart from other children
+        # Splits QuizQuestions apart from other children
+        if "#QuizQuestion" in y["string"]:
             question, tags = removeHashTags(y["string"])
             question = question.split()
             question = " ".join(question)
@@ -37,17 +43,21 @@ def getChildren(parent):
                 if "AI900" in tags:
                     ai900.append([question, parent['title'], tags])
 
-#splits parents (including children) from the JSON OBJ
+# Splits parents (including children) from the JSON OBJ
+
+
 def getParents(jsonObj):
     for items in jsonObj:
         try:
-            if len(items["children"]) > 0: #if the parent has children
+            if len(items["children"]) > 0:  # If the parent has children
                 getChildren(items)
         except:
-            continue #Ignore if it doesn't have children
+            continue  # Ignore if it doesn't have children
     createCSV()
 
-#creates the CSVs from the OP lists
+# Creates the CSVs from the OP lists
+
+
 def createCSV():
     with open('az900.csv', 'w', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
