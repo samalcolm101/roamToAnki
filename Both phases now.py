@@ -4,8 +4,65 @@ import csv
 
 # OP lists
 az900 = []
+az900Deprecated = []
 dp900 = []
+dp900Deprecated = []
 ai900 = []
+ai900Deprecated = []
+pl300 = []
+pl300Deprecated = []
+dp203 = []
+dp203Deprecated = []
+
+
+def appendToOpLists(tags, parent, question):
+
+    if "AZ900" in tags.upper():
+        if "Deprecated" in tags:
+            az900Deprecated.append(
+                [question, parent['title'], tags])
+        else:
+            az900.append([question, parent['title'], tags])
+    if "DP900" in tags.upper():
+        if "Deprecated" in tags:
+            dp900Deprecated.append(
+                [question, parent['title'], tags])
+        else:
+            dp900.append([question, parent['title'], tags])
+    if "AI900" in tags.upper():
+        if "Deprecated" in tags:
+            ai900Deprecated.append(
+                [question, parent['title'], tags])
+        else:
+            ai900.append([question, parent['title'], tags])
+    if "PL300" in tags.upper():
+        if "Deprecated" in tags:
+            pl300Deprecated.append(
+                [question, parent['title'], tags])
+        else:
+            pl300.append([question, parent['title'], tags])
+    if "DP203" in tags.upper():
+        if "Deprecated" in tags:
+            dp203Deprecated.append(
+                [question, parent['title'], tags])
+        else:
+            dp203.append([question, parent['title'], tags])
+
+# Splits a text object into its question and answer
+
+
+def splitQandA(text):  # TODO get tags
+    quenswer = text.partition('#')[2]
+    splitQuenswer = quenswer.partition('#')
+    question = splitQuenswer[0].replace("Question", "")
+    question = question
+    question = question.split()
+    question = " ".join(question)
+    answer = splitQuenswer[-1].replace("Answer", "")
+    answer = answer
+    answer = answer.split()
+    answer = " ".join(answer)
+    return(question, answer)
 
 
 # Splits a text object into its question part and its tag part
@@ -25,7 +82,7 @@ def removeHashTags(text):
 def getChildren(parent):
     for y in parent["children"]:
         # Splits QuizQuestions apart from other children
-        if "#QuizQuestion" in y["string"]:
+        if "#quizquestion" in y["string"].lower():
             question, tags = removeHashTags(y["string"])
             question = question.split()
             question = " ".join(question)
@@ -34,19 +91,14 @@ def getChildren(parent):
             if parent["title"] == "Example Page":
                 continue
             else:
-                if "AZ900" in tags:
-                    az900.append([question, parent['title'], tags])
-                if "DP900" in tags:
-                    dp900.append([question, parent['title'], tags])
-                if "AI900" in tags:
-                    ai900.append([question, parent['title'], tags])
+                appendToOpLists(tags, parent["title"], question)
 
 
 # Splits parents (including children) from the JSON OBJ
 def getParents(jsonObj):
     for items in jsonObj:
         try:
-            if len(items["children"]) > 0:  # If the parent has children
+            if len(items["children"]) > 0:
                 getChildren(items)
         except:
             continue  # Ignore if it doesn't have children
@@ -55,20 +107,51 @@ def getParents(jsonObj):
 
 # Creates the CSVs from the OP lists
 def createCSV():
-    with open('az900.csv', 'w', encoding='UTF8', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerows(az900)
-    with open('dp900.csv', 'w', encoding='UTF8', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerows(dp900)
-    with open('ai900.csv', 'w', encoding='UTF8', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerows(ai900)
+    if az900:
+        with open('az900.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(az900)
+    if az900Deprecated:
+        with open('az900Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(az900)
+    if dp900:
+        with open('dp900.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(dp900)
+    if dp900Deprecated:
+        with open('dp900Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(dp900Deprecated)
+    if ai900:
+        with open('ai900.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(ai900)
+    if ai900Deprecated:
+        with open('ai900Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(ai900Deprecated)
+    if pl300:
+        with open('pl300.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(pl300)
+    if pl300Deprecated:
+        with open('pl300Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(pl300Deprecated)
+    if dp203:
+        with open('dp203.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(dp203)
+    if dp203Deprecated:
+        with open('dp203Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(dp203Deprecated)
 
 
-f = open('21APRDP900concepts.json', encoding="utf8")
+f = open('03MAYDP900concepts.json', encoding="utf8")
 
-data = json.load(f) # Load the JSON file
+data = json.load(f)  # Load the JSON file
 
 print("Running")
 getParents(data)

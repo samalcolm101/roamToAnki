@@ -25,15 +25,15 @@
     }],
     "uid": "MeDLCtyeq",
     "edit-time": 1649668815584,
-    ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" }
-}
+    ":edit/user": { ":user/uid": "4PYS5F2lIqUsVTJHfNpZicgqXnO2" },
 
 
 
 
 
 
-{
+
+
     "create-time": 1649668837607,
     "title": "batch data",
     ":create/user": {
