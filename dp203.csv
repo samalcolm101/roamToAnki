@@ -1,0 +1,16 @@
+"Limitless analytics service that brings together Big Data analytics and enterprise data warehousing . It gives you the ability to query data on your terms, using either provisioned resources—at scale or serverless; bringing these two worlds together with a consolidated experience to ingest, prepare, manage, and serve data for urgent BI and machine learning needs.",Azure Synapse Analytics,"DP203,Definition"
+Relational operator that is used to turn distinct row values into columns - or a vertical format into horizontal.,Pivot,"DP900,DP203,Definition"
+What type of distribution distributes the data evenly in a random fashion?,Round Robin Distribution,DP203
+"What type of database stores metadata and history data for all types of replications, and transactions for transactional replication?",Distributions,DP203
+What type of distribution distributes data deterministically by using a hash function,Hash Distribution,DP203
+What type of distribution distributes a full copy of the data to every compute node?,Replicated Distribution,DP203
+"Window function that outputs events only for points in time when the content of the window actually changes, and where the same events can belong to more than one window.",Sliding Window,DP203
+"Window function that groups events that arrive at similar times, filtering out periods of time where there is no data.",Session Window,"DP203,Definition"
+"Data-skipping technique, which can significantly improve queries with selective joins on non-partition columns on tables.",Data Pruning,"DP203,Definition"
+Partitioning type that involves creating tables with fewer columns and using additional tables to store the remaining columns.,Vertical Partitioning,"DP203,Definition"
+"Open source, column-oriented data file format designed for efficient data storage and retrieval.",Parquet,"DP203,Definition"
+Open source system that provides data serialization and data exchange services for Apache Hadoop.,Avro,"DP203,Definition"
+Modeling approach widely adopted by relational data warehouses. It requires modelers to classify their model tables as either __dimension__ or __fact__.,Star Schema,"DP203,Definition"
+"Database operation that will update an existing row if a specified value already exists in a table, and insert a new row if the specified value doesn’t already exist.",Upsert Data,"DP203,Definition"
+When a confidential document is released into an untrusted environment.,Data Spill,"DP203,Definition"
+Limits sensitive data exposure by masking it to non-privileged users.,Dynamic Data Masking,"DP203,Definition"

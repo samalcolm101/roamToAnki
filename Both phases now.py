@@ -13,6 +13,9 @@ pl300 = []
 pl300Deprecated = []
 dp203 = []
 dp203Deprecated = []
+pl900 = []
+pl900Deprecated = []
+x = 1
 
 
 def appendToOpLists(tags, parent, question):
@@ -47,6 +50,12 @@ def appendToOpLists(tags, parent, question):
                 [question, parent['title'], tags])
         else:
             dp203.append([question, parent['title'], tags])
+    if "PL900" in tags.upper():
+        if "Deprecated" in tags:
+            pl900Deprecated.append(
+                [question, parent['title'], tags])
+        else:
+            pl900.append([question, parent['title'], tags])
 
 # Splits a text object into its question and answer
 
@@ -91,7 +100,7 @@ def getChildren(parent):
             if parent["title"] == "Example Page":
                 continue
             else:
-                appendToOpLists(tags, parent["title"], question)
+                appendToOpLists(tags, parent, question)
 
 
 # Splits parents (including children) from the JSON OBJ
@@ -147,9 +156,17 @@ def createCSV():
         with open('dp203Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
             writer = csv.writer(f)
             writer.writerows(dp203Deprecated)
+    if pl900:
+        with open('pl900.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(pl900)
+    if pl900Deprecated:
+        with open('pl900Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(pl900Deprecated)
 
 
-f = open('03MAYDP900concepts.json', encoding="utf8")
+f = open('17MAYDP900concepts.json', encoding="utf8")
 
 data = json.load(f)  # Load the JSON file
 
