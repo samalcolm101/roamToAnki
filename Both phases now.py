@@ -1,61 +1,26 @@
 # Imports
+from email.encoders import encode_noop
 import json
 import csv
+import os.path
 
 # OP lists
-az900 = []
-az900Deprecated = []
-dp900 = []
-dp900Deprecated = []
-ai900 = []
-ai900Deprecated = []
-pl300 = []
-pl300Deprecated = []
-dp203 = []
-dp203Deprecated = []
-pl900 = []
-pl900Deprecated = []
-x = 1
+
+tagsToBeExported = ['AZ900', 'DP900', 'AI900',
+                    'PL300', 'DP203', 'PL900', 'Deprecated']
+
+masterOp = []
+
+for tag in tagsToBeExported:
+    masterOp.append([])
 
 
 def appendToOpLists(tags, parent, question):
+    for tag in tagsToBeExported:
+        if tag in tags.upper():
+            masterOp[tagsToBeExported.index(tag)].append(
+                [question, parent['title'], tags])
 
-    if "AZ900" in tags.upper():
-        if "Deprecated" in tags:
-            az900Deprecated.append(
-                [question, parent['title'], tags])
-        else:
-            az900.append([question, parent['title'], tags])
-    if "DP900" in tags.upper():
-        if "Deprecated" in tags:
-            dp900Deprecated.append(
-                [question, parent['title'], tags])
-        else:
-            dp900.append([question, parent['title'], tags])
-    if "AI900" in tags.upper():
-        if "Deprecated" in tags:
-            ai900Deprecated.append(
-                [question, parent['title'], tags])
-        else:
-            ai900.append([question, parent['title'], tags])
-    if "PL300" in tags.upper():
-        if "Deprecated" in tags:
-            pl300Deprecated.append(
-                [question, parent['title'], tags])
-        else:
-            pl300.append([question, parent['title'], tags])
-    if "DP203" in tags.upper():
-        if "Deprecated" in tags:
-            dp203Deprecated.append(
-                [question, parent['title'], tags])
-        else:
-            dp203.append([question, parent['title'], tags])
-    if "PL900" in tags.upper():
-        if "Deprecated" in tags:
-            pl900Deprecated.append(
-                [question, parent['title'], tags])
-        else:
-            pl900.append([question, parent['title'], tags])
 
 # Splits a text object into its question and answer
 
@@ -116,60 +81,40 @@ def getParents(jsonObj):
 
 # Creates the CSVs from the OP lists
 def createCSV():
-    if az900:
-        with open('az900.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(az900)
-    if az900Deprecated:
-        with open('az900Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(az900)
-    if dp900:
-        with open('dp900.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(dp900)
-    if dp900Deprecated:
-        with open('dp900Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(dp900Deprecated)
-    if ai900:
-        with open('ai900.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(ai900)
-    if ai900Deprecated:
-        with open('ai900Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(ai900Deprecated)
-    if pl300:
-        with open('pl300.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(pl300)
-    if pl300Deprecated:
-        with open('pl300Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(pl300Deprecated)
-    if dp203:
-        with open('dp203.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(dp203)
-    if dp203Deprecated:
-        with open('dp203Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(dp203Deprecated)
-    if pl900:
-        with open('pl900.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(pl900)
-    if pl900Deprecated:
-        with open('pl900Deprecated.csv', 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(pl900Deprecated)
+    for tag in tagsToBeExported:
+        if masterOp[tagsToBeExported.index(tag)]:
+            with open(f"{tag}-export-new.csv", 'w', encoding='UTF8', newline='') as f:
+                writer = csv.writer(f)
+                writer.writerows(masterOp[tagsToBeExported.index(tag)])
+
+
+def compareCSV():
+    for tag in tagsToBeExported:
+        comparisonOP = []
+        if masterOp[tagsToBeExported.index(tag)]:
+            try:
+                with open(f'{tag}-export-old.csv', 'r', encoding='UTF8') as csv1, open(f'{tag}-export-new.csv', 'r', encoding='utf-8-sig') as csv2:
+                    import1 = csv.reader(csv2)
+                    import2 = csv.reader(csv1)
+                    import1 = list(import1)
+                    import2 = list(import2)
+                    for row in import1:  # If question from new CSV isn't in the full library then append to OP list
+                        if row not in import2:
+                            comparisonOP.append(row)
+                with open(f'{tag}-updates.csv', 'w', encoding='UTF8', newline='') as f:
+                    writer = csv.writer(f)
+                    writer.writerows(comparisonOP)
+            except Exception as e:
+                print(f"There was a comparison error: {e}")
 
 
 f = open('17MAYDP900concepts.json', encoding="utf8")
 
 data = json.load(f)  # Load the JSON file
 
-print("Running")
-getParents(data)
-print("\n Done")
+try:
+    getParents(data)
+    compareCSV()
+except Exception as e:
+    print("There was a master error: {e}")
+print("\n Completed\n")

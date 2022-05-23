@@ -1,7 +1,0 @@
-"Azure Platform-as-a-Service (PaaS) offering that is based on the community edition of a popular open-source database, with some of the advanced features of the Oracle enterprise edition","Azure Database for
-MySQL","DP900,AZ900,Definition"
-"Describes a means for other systems or humans to interact with a resource, such as a cloud database, using an interface that hides the complexity of the source system. Does not have a graphical component/front end.",API (Application Programming Interface),"DP900,Definition"
-A Wide-Column database that is supported on Azure through a Cosmos DB API (Application Programming Interface),Cassandra,"DP900,Definition"
-Relational operator that is used to turn distinct row values into columns - or a vertical format into horizontal.,Pivot,"DP900,DP203,Definition"
-BLANK joins two Queries (tables) together based on a common field (column).,Merging Queries,"DP900,PL300"
-,Power Platform Admin Centre,DP900
