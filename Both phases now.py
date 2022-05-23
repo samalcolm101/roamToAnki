@@ -1,8 +1,6 @@
 # Imports
-from email.encoders import encode_noop
 import json
 import csv
-import os.path
 
 # OP lists
 
