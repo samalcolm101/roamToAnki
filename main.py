@@ -1,11 +1,11 @@
 # Imports
 import json
 import csv
+import os
 
 # OP lists
 
-tagsToBeExported = ['AZ900', 'DP900', 'AI900',
-                    'PL300', 'DP203', 'PL900', 'Deprecated']
+tagsToBeExported = ['AZ900', 'DP900', 'AI900', 'PL300', 'DP203', 'PL900']
 
 masterOp = []
 
@@ -86,12 +86,19 @@ def createCSV():
                 writer.writerows(masterOp[tagsToBeExported.index(tag)])
 
 
+def removeAndRenameFiles():
+    for tag in tagsToBeExported:
+        if masterOp[tagsToBeExported.index(tag)]:
+            os.remove(f'{tag}-export-current.csv')
+            os.rename(f'{tag}-export-new.csv', f'{tag}-export-current.csv')
+
+
 def compareCSV():
     for tag in tagsToBeExported:
         comparisonOP = []
         if masterOp[tagsToBeExported.index(tag)]:
             try:
-                with open(f'{tag}-export-old.csv', 'r', encoding='UTF8') as csv1, open(f'{tag}-export-new.csv', 'r', encoding='utf-8-sig') as csv2:
+                with open(f'{tag}-export-current.csv', 'r', encoding='UTF8') as csv1, open(f'{tag}-export-new.csv', 'r', encoding='utf-8-sig') as csv2:
                     import1 = csv.reader(csv2)
                     import2 = csv.reader(csv1)
                     import1 = list(import1)
@@ -104,9 +111,11 @@ def compareCSV():
                     writer.writerows(comparisonOP)
             except Exception as e:
                 print(f"There was a comparison error: {e}")
+    input("Press any Key to continue with auto deletion and renaming of files")
+    removeAndRenameFiles()
 
 
-f = open('17MAYDP900concepts.json', encoding="utf8")
+f = open('23MayDP900concepts.json', encoding="utf8")
 
 data = json.load(f)  # Load the JSON file
 

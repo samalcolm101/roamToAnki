@@ -1,18 +1,7 @@
-tagsToBeExported = ['AZ900', 'DP900', 'AI900',
-                    'PL300', 'DP203', 'PL900', 'customTag']
+import os
 
-masterOp = []
+print(os.listdir())
 
-for tag in tagsToBeExported:
-    masterOp.append([])
+os.remove("file2.txt")
 
-
-masterOp[tagsToBeExported.index('AZ900')].append('Does this work')
-
-
-print(masterOp)
-
-if masterOp[1]:
-    print("ye")
-else:
-    print("no")
+os.rename("file1.txt", "file2.txt")
